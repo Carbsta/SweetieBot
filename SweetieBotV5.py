@@ -9,7 +9,7 @@ import os
 import random
 
 tokens = {}
-with open("token.json",'r') as fp:
+with open("/root/Bots/SweetieBot/SweetieBot/token.json",'r') as fp:
     tokens = json.load(fp)
 
 token = tokens['token']
@@ -128,7 +128,7 @@ class SweetieBot(discord.Client):
     		return(resp)
 
     async def meow(self):
-    	res = await self.fetchurl('http://random.cat/meow')
+    	res = await self.fetchjson('http://random.cat/meow')
     	cat = res['file']
     	return(cat)
 
