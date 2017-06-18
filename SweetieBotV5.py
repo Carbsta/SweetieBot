@@ -71,17 +71,15 @@ class SweetieBot(discord.Client):
     			choice = await self.me_irl()
     		await self.send_message(message.channel, choice)
 
-
-
     async def blob(self, text):
-    	thetext = TextBlob(text)
-    	sentences = thetext.sentences
-    	language = thetext.detect_language()
-    	report = "Language: {}\n{} sentence(s):\n".format(language,len(sentences))
-    	for s in sentences:
-    		sentiment = s.sentiment
-    		report = report + "{}\n-- {}\n".format(s,sentiment)
-    	return(report)
+        thetext = TextBlob(text)
+        sentences = thetext.sentences
+        language = thetext.detect_language()
+        report = "Language: {}\n{} sentence(s):\n".format(language,len(sentences))
+        for s in sentences:
+            sentiment = s.sentiment
+            report = report + "{}\n-- {}\n".format(s,sentiment)
+        return(report)
 
     async def spellcheck(self, text):
     	thetext = TextBlob(text)
