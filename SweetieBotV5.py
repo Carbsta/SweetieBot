@@ -158,5 +158,9 @@ class SweetieBot(discord.Client):
     	me2thanks = res[0]['data']['children'][0]['data']['url']
     	return(me2thanks)
 
+    async def commands(self):
+    	response = "here is my command list :3\n" + str(self.commandlist)+"\nexample:\n`@sweetiebot command argument1|argument2|argument3`"
+    	return(response)
+
 bot = SweetieBot()
 bot.run(token)
