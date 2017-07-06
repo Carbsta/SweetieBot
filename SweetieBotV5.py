@@ -38,18 +38,17 @@ class SweetieBot(discord.Client):
             inputlist = userinput.split(' ',2)
             command = inputlist[1].lower()
             args = []
-    		if len(inputlist)>2:
-    			arglist = inputlist[2]
-    			if "|" in arglist:
-    				arglist = arglist.split("|")
-    			else:
-    				arglist = [arglist]
-
-    			args = args + arglist
-    		if message.author.id == self.ownerid:
-    			self.isowner = True
-    		else:
-    			self.isowner = False
+            if len(inputlist)>2:
+                arglist = inputlist[2]
+                if "|" in arglist:
+                    arglist = arglist.split("|")
+                else:
+                    arglist = [arglist]
+                args = args + arglist
+            if message.author.id == self.ownerid:
+                self.isowner = True
+            else:
+                self.isowner = False
             if (self.isowner == True) or (command in self.commandlist):
                 if hasattr(self, command):
                     method = getattr(self, command)
