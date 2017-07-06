@@ -59,8 +59,8 @@ class SweetieBot(discord.Client):
                         response = await method(*args)
                     except:
                         response = report
-    				await self.send_message(message.channel, response)
-    		return
+                    await self.send_message(message.channel, response)
+                return
         if ("sweetiebot" in message.content.lower()) or ("SB" in message.content):
             choice = random.choice(self.responselist)
             if choice == "me_irl":
