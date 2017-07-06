@@ -50,16 +50,16 @@ class SweetieBot(discord.Client):
     			self.isowner = True
     		else:
     			self.isowner = False
-    		if (self.isowner == True) or (command in self.commandlist):
-    			if hasattr(self, command):
+            if (self.isowner == True) or (command in self.commandlist):
+                if hasattr(self, command):
                     method = getattr(self, command)
                     attributenumber = method.__code__.co_argcount
                     attributeslist = method.__code__.co_varnames
-    				report = "arguments:\nHas {} required argument(s).\n{}".format(attributenumber,attributeslist)
-    				try:
-    					response = await method(*args)
-    				except:
-    					response = report
+                    report = "arguments:\nHas {} required argument(s).\n{}".format(attributenumber,attributeslist)
+                    try:
+                        response = await method(*args)
+                    except:
+                        response = report
     				await self.send_message(message.channel, response)
     		return
         if ("sweetiebot" in message.content.lower()) or ("SB" in message.content):
