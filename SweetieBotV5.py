@@ -52,9 +52,9 @@ class SweetieBot(discord.Client):
     			self.isowner = False
     		if (self.isowner == True) or (command in self.commandlist):
     			if hasattr(self, command):
-                 	method = getattr(self, command)
-    				attributenumber = method.__code__.co_argcount
-    				attributeslist = method.__code__.co_varnames
+                    method = getattr(self, command)
+                    attributenumber = method.__code__.co_argcount
+                    attributeslist = method.__code__.co_varnames
     				report = "arguments:\nHas {} required argument(s).\n{}".format(attributenumber,attributeslist)
     				try:
     					response = await method(*args)
