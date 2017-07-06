@@ -31,13 +31,13 @@ class SweetieBot(discord.Client):
     	await self.change_presence(game = self.GamePlaying)
 
     async def on_message(self, message):
-    	if message.author.id == self.ownid:
-    		return
-    	if self.user.mentioned_in(message):
-    		userinput = message.content
-    		inputlist = userinput.split(' ',2)
-    		command = inputlist[1].lower()
-    		args = []
+        if message.author.id == self.ownid:
+            return
+        if self.user.mentioned_in(message):
+            userinput = message.content
+            inputlist = userinput.split(' ',2)
+            command = inputlist[1].lower()
+            args = []
     		if len(inputlist)>2:
     			arglist = inputlist[2]
     			if "|" in arglist:
