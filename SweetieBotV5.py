@@ -52,7 +52,7 @@ class SweetieBot(discord.Client):
     			self.isowner = False
     		if (self.isowner == True) or (command in self.commandlist):
     			if hasattr(self, command):
-    				method = getattr(self, command)
+                 	method = getattr(self, command)
     				attributenumber = method.__code__.co_argcount
     				attributeslist = method.__code__.co_varnames
     				report = "arguments:\nHas {} required argument(s).\n{}".format(attributenumber,attributeslist)
@@ -68,11 +68,6 @@ class SweetieBot(discord.Client):
                 choice = await self.me_irl()
             await self.send_message(message.channel, choice)
         return
-        #if random.randint(1,70) == 70:
-        #	choice = random.choice(self.responselist)
-        #	if choice == "me_irl":
-        #		choice = await self.me_irl()
-        #	await self.send_message(message.channel, choice)
 
     async def blob(self, text):
         thetext = TextBlob(text)
