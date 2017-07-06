@@ -62,17 +62,17 @@ class SweetieBot(discord.Client):
     					response = report
     				await self.send_message(message.channel, response)
     		return
-    	if ("sweetiebot" in message.content.lower()) or ("SB" in message.content):
+        if ("sweetiebot" in message.content.lower()) or ("SB" in message.content):
             choice = random.choice(self.responselist)
             if choice == "me_irl":
                 choice = await self.me_irl()
             await self.send_message(message.channel, choice)
-    		return
-    	#if random.randint(1,70) == 70:
-    	#	choice = random.choice(self.responselist)
-    	#	if choice == "me_irl":
-    	#		choice = await self.me_irl()
-    	#	await self.send_message(message.channel, choice)
+        return
+        #if random.randint(1,70) == 70:
+        #	choice = random.choice(self.responselist)
+        #	if choice == "me_irl":
+        #		choice = await self.me_irl()
+        #	await self.send_message(message.channel, choice)
 
     async def blob(self, text):
         thetext = TextBlob(text)
